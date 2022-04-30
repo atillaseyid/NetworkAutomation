@@ -7,9 +7,11 @@ for packet in capture:
         output= packet.telnet
         if 'Username' in str(output):
             print('Telnet username:')
-            print(output)
+            
         elif 'Password' in str(output):
             print('Telnet password:')
-            print(output)
+
+        if packet.telnet.data:
+            print(output)    
     except:
          pass        
