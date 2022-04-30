@@ -5,8 +5,9 @@ for packet in capture.sniff_continuously(packet_count=50):
     myfile = open("pyshark.txt", "w")
     myfile.write(str(packet))
     try:
-        print('Source = ' + packet.ip.src)
-        print('Destination = ' + packet.ip.dst)
+        print('Source = ' + packet['ip'].src)
+        print('Destination = ' + packet['ip'].dst)
+        print('EIGRP AS = ' +  packet['eigrp'].AS)
     except:
         pass
 print ('Done')    
